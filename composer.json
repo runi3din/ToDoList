@@ -1,0 +1,22 @@
+{
+    "name": "asus/to-do-list-project",
+    "description": "A simple Todo List Poject (with Ajax, Php, mysql)",
+    "type": "project",
+    "version": "8",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Asus\\ToDoListProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "boilnardo",
+            "email": "kazeminx@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hekmatinasser/verta": "^8.4"
+    }
+}
