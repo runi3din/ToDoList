@@ -4,5 +4,5 @@ $database_config = [
     'host' => 'localhost',
     'user' => 'root',
     'pass' => '',
-    'db' => '7learn'
+    'db' => '7todo'
 ];
