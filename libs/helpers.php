@@ -6,7 +6,7 @@ function diePage($msg) {
 }
 
 function site_url($uri = '') {
-    return BASE_PATH . $uri;
+    return SITE_URL . $uri;
 }
 
 function isAjaxRequest() {
@@ -21,3 +21,4 @@ function dd($var) {
     var_dump($var);
     echo "</pre>";
 }
+

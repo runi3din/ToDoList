@@ -28,11 +28,19 @@
         <div class="title">Folders</div>
         <ul class="folder-list">
         <li class="<?=isset($_GET['folder_id']) ? '' : 'active'?>">
-          <a href="http://localhost/ToDoList-Project/"><i class="fa fa-folder"></i>All</a>
+          <a href="<?= site_url() ?>"><i class="fa fa-folder"></i>All</a>
           </li>
 
           <?php foreach ($folders as $folder): ?>
-          <li class="<?=($_GET['folder_id'] == $folder->id) ? 'active' : ''?>">
+            
+          <li class="<?php
+          if (isset($_GET['folder_id'])) {
+            $folder_id == $folder->id;
+            echo $_GET['folder_id'] == $folder->id ? 'active' : '';
+            } else {
+            $folder_id = null; 
+          }
+          ?>">
           <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?=$folder->name?></a>
           <a href="?delete_folder=<?= $folder->id ?>">
           <i class="fa fa-trash-alt second-a" onclick="return confirm('Are you sure to delete this Item?\n<?= $folder->name ?>')"></i></a>
