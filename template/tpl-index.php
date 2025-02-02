@@ -41,7 +41,7 @@
             $folder_id = null; 
           }
           ?>">
-          <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder"></i><?=$folder->name?></a>
+          <a href="<?= site_url("?folder_id= $folder->id") ?>"><i class="fa fa-folder"></i><?=$folder->name?></a>
           <a href="?delete_folder=<?= $folder->id ?>">
           <i class="fa fa-trash-alt second-a" onclick="return confirm('Are you sure to delete this Item?\n<?= $folder->name ?>')"></i></a>
           </li>
@@ -76,7 +76,7 @@
             <?php foreach ($tasks as $task): ?>
             <li class="<?= $task->is_done ? 'checked' : ''; ?>">
               
-            <i class="fa <?= $task->is_done ? 'fa-check-square-o' : 'fa-square-o'; ?>" ></i>
+            <i data-taskId="<?=$task->id?>" class="isDone clickable fa <?=$task->is_done ? 'fa-check-square-o' : 'fa-square-o';?> "></i>
 
             <span><?= $task->title ?></span>
               <div class="info">
@@ -100,6 +100,22 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script>
     $(document).ready(function(){
+
+      $('.isDone').click(function(e){
+        var tid = $(this).attr('data-taskId');
+        
+        $.ajax({
+          url : "process/ajaxHandler.php",
+          method : "post",
+          data : {action: "doneSwitch",taskId: tid},
+          success : function(response){
+            // alert(response);
+            location.reload();
+            
+          }
+        });
+      })
+
       $('#addFolderBtn').click(function(e){
           var input = $('input#addFolderInput');
           $.ajax({

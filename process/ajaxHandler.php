@@ -18,6 +18,14 @@ switch($_POST['action']) {
         }
         echo addFolder($_POST['folderName']);
     break;
+    case "doneSwitch":
+        $task_id = $_POST['taskId'];
+        if(!isset($task_id) || !is_numeric($task_id)){
+            echo "آیدی تسک معتبر نیست.";
+            die();
+        }
+        doneSwitch($task_id);
+    break;
     case "addTask":
         $folderId = $_POST['folderId'];
         $taskTitle = $_POST['taskTitle'];
