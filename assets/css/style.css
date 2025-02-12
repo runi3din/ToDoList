@@ -304,3 +304,9 @@ span.created_at {
 .clear {
   clear: both;
 }
+
+.success {
+  background: #def9df !important;
+  border: 1px solid #a4cca6 !important;
+  color: #205217 !important;
+}

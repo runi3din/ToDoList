@@ -1,11 +1,14 @@
 <?php
 
+session_start();
+
 include "constants.php";
 include "config.php";
 include BASE_PATH . "bootstrap/config.php";
 include BASE_PATH . "vendor/autoload.php";
 include BASE_PATH . "libs/helpers.php";
 include BASE_PATH . "libs/lib-tasks.php";
+include BASE_PATH . "libs/lib-auth.php";
 
 
 $dsn = "mysql:dbname={$database_config['db']};host={$database_config['host']}";

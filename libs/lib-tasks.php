@@ -7,10 +7,7 @@
 defined('BASE_PATH') OR die("Permission Denied!"); 
 
 // Folder Function
-function getCurrentUserId() {
-    // get login user id
-    return 1;
-}
+
 
 function deleteFolder($folder_id) {
     global $pdo;
